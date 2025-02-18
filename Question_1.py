@@ -26,9 +26,12 @@ LHVk = 120 # MJ/kg
 T = 225 # K
 nu = 0.3 
 
-es = np.exp(a_ei[0]*(1/T**(-3)) + a_ei[1]*(1/T**-2) + a_ei[2]*(1/T) + a_ei[3] + a_ei[4]*T + a_ei[5]*T**2 + a_ei[5]*np.log(T))
-print(es)
+# es = np.exp(a_ei[0]*(1/T**(-3)) + a_ei[1]*(1/T**-2) + a_ei[2]*(1/T) + a_ei[3] + a_ei[4]*T + a_ei[5]*T**2 + a_ei[5]*np.log(T))
+# print(es)
 
+G = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
+print(eta * (1-nu) * LHVk)
+print(G)
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 5))
 
