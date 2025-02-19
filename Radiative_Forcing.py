@@ -40,7 +40,7 @@ print("Total energy forcing []: ",ef_d)
 #PART E)
 
 r = 6371*(10**3)
-print(4*np.pi*r**2)
+print(4*np.pi*r**2)                                         
 ans = ef_d/(4*np.pi*r**2) 
 
 print("Radiative forcing (mWm^-2): ", ans*10**3)
