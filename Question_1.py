@@ -31,7 +31,7 @@ rhi = 110/100
 # print(es)
 
 G = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
-print(G)
+print("G", G)
 
 e_initial_e = a_ei[0]*(1/T) + a_ei[1] + a_ei[2]*T + a_ei[3]*T**2 + a_ei[4]*T**3 + a_ei[5]*T**4
 ep_initial = (np.exp(bei*np.log(T) + e_initial_e))*rhi

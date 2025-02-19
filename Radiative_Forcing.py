@@ -16,13 +16,12 @@ F_out = F_in*np.exp(-tau)
 RFC_LW = F_in * (1 - np.exp(-tau))
 F_out_nc = RFC_LW + F_out
 
-print("Radiative force Fout: ", F_out)
 print("Radiative flux change RFClw [W/m^2]: ", RFC_LW)
 
 #-----------------------------
 #PART B)
 x = 1000 # m
-t = 3*60**2 # s
+t = 3*3600 # s
 #Radiative force is independent of location and time 
 EF = (RFC_LW*x*t) #Assuming 1D area projection 
 
@@ -31,16 +30,17 @@ print("Energy force per metre of contrail [W*s/m]: ", EF) # J/m
 #-----------------------------
 #PART C + D)
 
-d = 0.1*(50*10**9)*1000
+d = 0.1*(50*10**9)*10**3 
 
-ef_d = d*EF #J
+ef_d = EF*d/(365.25*24*60**2) #J
 
-print("Total energy forcing [J]: ",ef_d)
+print("Total energy forcing []: ",ef_d)
 
 #-----------------------------
 #PART E)
 
 r = 6371*(10**3)
-ans = ef_d/(4*np.pi*r**3) 
+print(4*np.pi*r**2)
+ans = ef_d/(4*np.pi*r**2) 
 
 print("Radiative forcing (mWm^-2): ", ans*10**3)
