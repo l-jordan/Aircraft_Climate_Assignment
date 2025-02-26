@@ -5,7 +5,7 @@ import numpy as np
 a_el = [-0.58002206*10**(4), 1.3914993, -0.48640239*10**(-1), 0.41764768*10**(-4),  -0.14452093*10**(-7), 0]
 a_ei = [-0.56745359*10**(4), 6.3925247, -0.96778430*10**(-2), 0.62215701*10**(-6), 0.20747825*10**(-8), -0.94840240*(10**(-12))]
 bel = 6.5459673
-bei = 4.1645019
+bei = 4.1635019
 
 ep_el = []
 ep_ei = []
@@ -35,12 +35,12 @@ print("The mixing line slope for b) is", G)
 
 e_initial_e = a_ei[0]*(1/T) + a_ei[1] + a_ei[2]*T + a_ei[3]*T**2 + a_ei[4]*T**3 + a_ei[5]*T**4
 ep_initial = (np.exp(bei*np.log(T) + e_initial_e))*rhi
-
+print(ep_initial)
 
 # c) New mixing slope for engine efficiency
 nu = 0.4
 G2 = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
-
+print(G2)
 # d) New mixing slope for hydrogen
 
 nu = 0.3
@@ -48,7 +48,7 @@ EIh20h = 8.94 # kg/kg
 LHVh = 120 * 10**6 # J/kg
 
 G3 = cpk * p * EIh20h / (eta * (1-nu) * LHVh)
-
+print(G3)
 plt.plot(np.arange(210, 253), ep_el, label= "Saturation w.r.t. liquid", color = 'black')
 plt.plot(np.arange(210, 253), ep_ei, label= "Saturation w.r.t. ice", color = '#D2386C')
 plt.plot(T, ep_initial, color = '#FFCBA4', marker = 'o', label='Atmospheric condition')
