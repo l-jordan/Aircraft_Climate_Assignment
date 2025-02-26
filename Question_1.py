@@ -28,19 +28,19 @@ nu = 0.3
 rhi = 110/100
 
 G = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
+print("The mixing line slope for b) is", G)
 
-#MIXING LINE
 e_initial_e = a_ei[0]*(1/T) + a_ei[1] + a_ei[2]*T + a_ei[3]*T**2 + a_ei[4]*T**3 + a_ei[5]*T**4
 ep_initial = (np.exp(bei*np.log(T) + e_initial_e))*rhi
 
-#--------------------------------------------
-# c)
+
+# c) New value for engine efficiency
 
 nu = 0.4
 G2 = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
 
-#--------------------------------------------
 # d)
+
 nu = 0.3
 EIh20h = 8.94 # kg/kg
 LHVh = 120 * 10**6 # J/kg
@@ -60,4 +60,12 @@ plt.ylabel('Saturation pressure [Pa]')
 plt.grid()
 plt.legend()
 plt.show()
+
+
+
+
+
+
+
+
 
