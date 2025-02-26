@@ -3,7 +3,7 @@ import numpy as np
 
 # Longwave radiative flux change due to a contrail
 # Beer-Lambert Law
-# PART A)
+# Part a)
 tau = 0.1
 T = 288.15 # K
 sigma = 5.670374419 * 10**(-8) # W/m^2/K^4 
@@ -21,7 +21,7 @@ F_out_nc = RFC_LW + F_out
 print("Radiative flux change RFClw [W/m^2]: ", RFC_LW)
 
 #-----------------------------
-#PART B)
+# Part B)
 x = 1000 # m
 t = 3*3600 # s
 #Radiative force is independent of location and time 
@@ -30,7 +30,7 @@ EF = (RFC_LW*x*t) #Assuming 1D area projection
 print("Energy force per metre of contrail [W*s/m]: ", EF/10**8) # J/m 
 
 #-----------------------------
-#PART C + D)
+# Part C + D)
 
 d = 0.1*(50*10**9)*10**3 
 
@@ -39,7 +39,7 @@ ef_d = EF*d/(365.25*24*60**2) #J
 print("Total energy forcing: ",ef_d/10**12)
 
 #-----------------------------
-#PART E)
+# Part E)
 
 r = 6371*(10**3)
 print(4*np.pi*r**2)                                         
