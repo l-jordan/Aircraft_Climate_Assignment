@@ -10,6 +10,8 @@ sigma = 5.670374419 * 10**(-8) # W/m^2/K^4
 
 F_in = sigma*(T**4)
 
+print("Ingoing radiative flux [W/m^2]: ", F_in)
+
 F_out = F_in*np.exp(-tau)
 
 #RFC_LW = F_out_nocontrail - F_out_contrail
@@ -25,7 +27,7 @@ t = 3*3600 # s
 #Radiative force is independent of location and time 
 EF = (RFC_LW*x*t) #Assuming 1D area projection 
 
-print("Energy force per metre of contrail [W*s/m]: ", EF) # J/m 
+print("Energy force per metre of contrail [W*s/m]: ", EF/10**8) # J/m 
 
 #-----------------------------
 #PART C + D)
@@ -34,7 +36,7 @@ d = 0.1*(50*10**9)*10**3
 
 ef_d = EF*d/(365.25*24*60**2) #J
 
-print("Total energy forcing []: ",ef_d)
+print("Total energy forcing: ",ef_d/10**12)
 
 #-----------------------------
 #PART E)
