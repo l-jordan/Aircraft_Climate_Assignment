@@ -34,71 +34,15 @@ G = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
 e_initial_e = a_ei[0]*(1/T) + a_ei[1] + a_ei[2]*T + a_ei[3]*T**2 + a_ei[4]*T**3 + a_ei[5]*T**4
 ep_initial = (np.exp(bei*np.log(T) + e_initial_e))*rhi
 
-#THRESHOLD
-Tlm = (-46.46+9.43*np.log(G-0.053)+0.720*(np.log(G-0.053))**2)+273.15
-e_initial_elm = a_ei[0]*(1/Tlm) + a_ei[1] + a_ei[2]*Tlm + a_ei[3]*Tlm**2 + a_ei[4]*Tlm**3 + a_ei[5]*Tlm**4
-ep_initial_lm = (np.exp(bei*np.log(Tlm) + e_initial_elm))*rhi
-
-
-plt.plot(np.arange(210, 253), ep_el, label= "Saturation w.r.t. liquid", color = 'purple')
-plt.plot(np.arange(210, 253), ep_ei, label= "Saturation w.r.t. ice", color = 'orange')
-plt.plot(T, ep_initial, 'ro', label='Atmospheric condition')
-plt.plot(np.arange(T, 253), ep_initial + (np.arange(T, 253) - T) * G, 'r-', label='Mixing line')
-plt.plot(np.arange(210, 253), ep_initial_lm + (np.arange(210, 253)-Tlm) * G, 'green', label='Threshold line')
-#plt.fill_between(np.arange(210, 253), ep_el, ep_ei, color='gray', alpha=0.3)
-#plt.fill_between(np.arange(210, 253), ep_ei, ep_initial_lm + (np.arange(210, 253)-Tlm) * G, color='white', alpha=0.3)
+plt.plot(np.arange(210, 253), ep_el, label= "Saturation w.r.t. liquid", color = 'black')
+plt.plot(np.arange(210, 253), ep_ei, label= "Saturation w.r.t. ice", color = '#D2386C')
+plt.plot(T, ep_initial, color = '#D4A5EB', marker = 'o', label='Atmospheric condition')
+plt.plot(np.arange(T, 253), ep_initial + (np.arange(T, 253) - T) * G, color = '#D4A5EB', linestyle = '-.', label='Mixing line')
 plt.ylim(0, ep_el[-1])
-plt.title(r'Saturation pressure [Pa] vs Temperature [K]')
+plt.title(r'Saturation pressure [Pa] vs Temperature [K]  with Relative Humidity w.r.t. Liquid')
 plt.xlabel('Temperature [K]')
 plt.ylabel('Saturation pressure [Pa]')
 plt.grid()
 plt.legend()
 plt.show()
 
-#--------------------------------------------
-# c)
-
-nu = 0.4
-G2 = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
-
-Tlm2 = (-46.46+9.43*np.log(G2-0.053)+0.720*(np.log(G2-0.053))**2)+273.15
-e_initial_elm2 = a_ei[0]*(1/Tlm2) + a_ei[1] + a_ei[2]*Tlm2 + a_ei[3]*Tlm2**2 + a_ei[4]*Tlm2**3 + a_ei[5]*Tlm2**4
-ep_initial_lm2 = (np.exp(bei*np.log(Tlm2) + e_initial_elm2))*rhi
-
-plt.plot(np.arange(210, 253), ep_el, label= "Saturation w.r.t. liquid", color = 'purple')
-plt.plot(np.arange(210, 253), ep_ei, label= "Saturation w.r.t. ice", color = 'orange')
-plt.plot(T, ep_initial, 'ro', label='Atmospheric condition')
-plt.plot(np.arange(T, 253), ep_initial + (np.arange(T, 253) - T) * G2, 'r-', label='Mixing line')
-plt.plot(np.arange(200, 253), ep_initial_lm2 + (np.arange(200, 253) - Tlm2) * G2, 'green', label='Threshold line')
-plt.ylim(0, ep_el[-1])
-plt.title(r'Saturation Pressure [Pa] vs Temperature [K] for $\eta$ =  0.4')
-plt.xlabel('Temperature [K]')
-plt.ylabel('Saturation pressure [Pa]')
-plt.grid()
-plt.legend()
-plt.show()
-
-#--------------------------------------------
-# d)
-nu = 0.3
-EIh20h = 8.94 # kg/kg
-LHVh = 120 * 10**6 # J/kg
-
-G3 = cpk * p * EIh20h / (eta * (1-nu) * LHVh)
-
-Tlm3 = (-46.46+9.43*np.log(G3-0.053)+0.720*(np.log(G3-0.053))**2)+273.15
-e_initial_elm3 = a_ei[0]*(1/Tlm3) + a_ei[1] + a_ei[2]*Tlm3 + a_ei[3]*Tlm3**2 + a_ei[4]*Tlm3**3 + a_ei[5]*Tlm3**4
-ep_initial_lm3 = (np.exp(bei*np.log(Tlm3) + e_initial_elm3))*rhi
-
-plt.plot(np.arange(210, 253), ep_el, label= "Saturation w.r.t. liquid", color = 'purple')
-plt.plot(np.arange(210, 253), ep_ei, label= "Saturation w.r.t. ice", color = 'orange')
-plt.plot(T, ep_initial, 'ro', label='Atmospheric condition')
-plt.plot(np.arange(T, 253), ep_initial + (np.arange(T, 253) - T) * G3, 'r-', label='Mixing line')
-plt.plot(np.arange(200, 253), ep_initial_lm3 + (np.arange(200, 253) - Tlm3) * G3, 'green', label='Threshold line')
-plt.ylim(0, ep_el[-1])
-plt.title(r'Hydrogen Conditions Saturation pressure [Pa] vs Temperature [K] for $\eta$ = 0.3')
-plt.xlabel('Temperature [K]')
-plt.ylabel('Saturation pressure [Pa]')
-plt.grid()
-plt.legend()
-plt.show()
