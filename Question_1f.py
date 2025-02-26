@@ -27,7 +27,6 @@ T = 230 # K
 nu = 0.3 
 rhi = 60/100
 
-
 G = cpk * p * EIh20 / (eta * (1-nu) * LHVk)
 
 #MIXING LINE
